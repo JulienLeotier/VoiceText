@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Voice text Meli</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+	<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+
+</head>
+<body style="text-align: center;">
+
+
+
+	<textarea id="text" placeholder="Ton texte"></textarea>
+
+	<a class="waves-effect waves-light btn-large" onclick="responsiveVoice.speak($('#text').val(), 'French Female');" type="button" id="ok"">Play</a>
+	<a class="waves-effect waves-light btn-large" type="button" id="stop"">Stop</a>	
+	<div id="video" >
+	</div>
+	<a style="font-size: 100px;" href="http://document.online-convert.com/fr/convertir-en-txt">Convertir ton document  en txt</a>
+	<script type="text/javascript">
+		var stop = document.getElementById("stop");
+		stop.addEventListener("click", toto);
+
+		var play = document.getElementById("ok");
+		play.addEventListener("click", tel);
+		function tel(){
+			var text = document.getElementById("text").value;
+			var hello = document.getElementById("video");
+
+			hello.innerHTML = "<video  class='responsive-video' controls=''  name='media'><source src='https://code.responsivevoice.org/getvoice.php?t=" + text +"&amp;tl=fr&amp;sv=&amp;vn=&amp;pitch=0.5&amp;rate=0.5&amp;vol=1' type='audio/mpeg'></source></video"
+			console.log(hello)
+		}
+		function toto(){
+			responsiveVoice.cancel();
+		}
+	</script>
+</body>
+</html>
